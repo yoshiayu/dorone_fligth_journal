@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/static.css' %}">
+    <script src="{% static 'js/main_script.js' %}" defer></script>
+    <title>{% block title %}Aviation Records{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Flight & Maintenance Records{% endblock %}</h1>
+        <!-- You may add navigation, user authentication status etc. here -->
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>{% block footer %}© 2023 Aviation Records{% endblock %}</p>
+    </footer>
+</body>
+</html>
