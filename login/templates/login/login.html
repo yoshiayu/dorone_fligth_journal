@@ -1,0 +1,17 @@
+{% extends 'login/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mt-5" style="color: #00aaff;">ログイン</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary btn-block" style="background-color: #00aaff; border: none;">ログイン</button>
+            </form>
+            <p class="mt-2 text-center"><a href="{% url 'login:signup' %}" style="color: #00aaff;">アカウントを持っていない方</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
