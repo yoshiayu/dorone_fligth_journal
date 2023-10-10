@@ -13,10 +13,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('login:login')  # ログイン後に飛行記録画面へリダイレクト
-            else:
-                # 認証失敗時の処理
-                pass
+                return redirect('flight_record:index')  # ログイン後に飛行記録画面へリダイレクト
     else:
         form = LoginForm()
     return render(request, 'login/login.html', {'form': form})
@@ -27,7 +24,7 @@ def user_signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('signup:signup')  # サインイン後に飛行記録画面へリダイレクト
+            return redirect('flight_record:index')  # サインイン後に飛行記録画面へリダイレクト
     else:
         form = SignupForm()
     return render(request, 'login/signup.html', {'form': form})

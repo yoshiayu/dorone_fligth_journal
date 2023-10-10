@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,41 @@
 <body>
     <div class="container">
         <h1>Flight Record</h1>
+        <!-- (1) 飛行年月日の選択 -->
+    <div class="mb-3">
+        <label for="flightDate" class="form-label">飛行年月日</label>
+        <input type="date" class="form-control" id="flightDate">
+    </div>
+    <!-- (2) 飛行させた者の氏名の入力 -->
+    <div class="mb-3">
+        <label for="flyerName" class="form-label">飛行させた者の氏名</label>
+        <input type="text" class="form-control" id="flyerName">
+    </div>
+    <!-- (3) 飛行概要の選択 -->
+    <div class="mb-3">
+        <label for="flightOverview" class="form-label">飛行概要</label>
+        <select class="form-control" id="flightOverview">
+            <optgroup label="目視内飛行">
+                <option value="目視内飛行_空撮">空撮</option>
+                <option value="目視内飛行_インフラ点検">インフラ点検</option>
+                <option value="目視内飛行_散布作業">散布作業</option>
+            </optgroup>
+            <optgroup label="目視外飛行">
+                <option value="目視外飛行_空撮">空撮</option>
+                <option value="目視外飛行_インフラ点検">インフラ点検</option>
+                <option value="目視外飛行_散布作業">散布作業</option>
+            </optgroup>
+        </select>
+    </div>
+    <div id="map" style="height: 500px;"></div>
+    <div class="mb-3">
+        <label for="takeoffTime" class="form-label">離陸時刻</label>
+        <input type="time" class="form-control" id="takeoffTime" required>
+    </div>
+    <div class="mb-3">
+        <label for="landingTime" class="form-label">着陸時間</label>
+        <input type="time" class="form-control" id="landingTime">
+    </div>
         <div id="stopwatch-container">
             <h2>離陸ストップウォッチ</h2>
             <p id="time">00:00:00</p>
@@ -22,14 +57,12 @@
             <h2>飛行時間</h2>
             <p id="totalTime">00:00:00</p>
         </div>
-        <form method="post" action="{% url 'flight_record' %}" id="flightForm">
+        <form method="post" action="{% url 'flight_record:index' %}" id="flightForm">
             {% csrf_token %}
             <!-- ... other form inputs ... -->
             <input type="hidden" name="departure_lat" id="departureLat">
             <input type="hidden" name="departure_lng" id="departureLng">
-            <div id="map" style="height: 500px;"></div>
         </form>
-        <div id="map" style="height: 400px; width: 100%;"></div>
         <input type="hidden" id="id_departure_location" name="departure_location">
         <div id="safety-issues-container">
             <h2>安全に影響のあった事項</h2>
@@ -48,13 +81,15 @@
             <label for="checker">確認者:</label>
             <input type="text" id="checker" placeholder="確認者の名前"><br>
         </div>
-        <button id="saveRecord">記録を保存</button>
-        <button id="exportExcel">Excelに出力</button>
+        <!-- (12) 記録を保存ボタン -->
+    <button id="saveRecord" class="btn btn-primary">記録を保存</button>
+        <!-- (13) Excelに出力ボタン -->
+    <button id="exportExcel" class="btn btn-secondary">Excelに出力</button>
         <!-- Flight Record Form Will Go Here -->
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{% static 'js/main_script.js' %}"></script>
+    <script src="{% static 'js/main_script.js' %}" async></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzaqhU7tFCZQu6qYxgjoZcZYH3NPFFFus&callback=initMap" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

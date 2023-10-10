@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E0F7FA; /* 淡い水色の背景 */
+    color: #333; /* テキストの色 */
+    font-size: 1.2rem; /* テキストのサイズ */
+}
+
+.container {
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #007BFF; /* 水色の見出し */
+}
+
+.btn {
+    background-color: #00aaff;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #0088cc;
+}
+
+header {
+    background-color: #4c9f70;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+footer {
+    background-color: #4c9f70;
+    color: white;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+button {
+    background-color: #007BFF; /* 水色のボタン */
+    color: #ffffff; /* ボタンのテキスト色 */
+    padding: 10px 20px; /* ボタンのパディング */
+    border: none; /* ボーダーを消す */
+    border-radius: 5px; /* 角を丸める */
+    cursor: pointer; /* カーソルを手の形にする */
+    margin-right: 10px; /* ボタン間の間隔 */
+    transition: background-color 0.3s; /* 色の変わり方のアニメーション */
+}
+
+button:hover {
+    background-color: #0056b3; /* ホバー時の色 */
+}
+
+#stopwatch-container {
+    background-color: #87CEEB; /* Skyblue */
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+textarea {
+    width: 100%; /* 幅を100%にする */
+    padding: 10px; /* テキストエリアの内部の余白 */
+    border-radius: 5px; /* 角を丸める */
+    border: 1px solid #ccc; /* ボーダーの色 */
+    font-size: 1rem; /* テキストのサイズ */
+}
+
+#time {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+#flight-time-container, #safety-issues-container {
+    background-color: #87CEEB;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+textarea, input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
